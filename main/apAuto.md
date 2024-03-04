@@ -1073,7 +1073,7 @@ logger = MyLogger()
 
 > ### 8. 生成报告
 
-pytest-html 测试报告：<a href='../_media/resource/result.html' target='blank'>Click Here</a>
+pytest-html 测试报告：<a href='./_media/resource/result.html' target='blank'>Click Here</a> [123](_media/resource/result.html)
 
 
 ![report](../_media/resource/report.png)
