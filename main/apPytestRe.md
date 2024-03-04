@@ -136,7 +136,7 @@ FAILED cases/test_api.py::test_showMore - assert not True
 
 > ### 3. 测试报告
 
-pytest-html 测试报告
+pytest-html 测试报告：<a href='./_media/resource/result.html' target='blank'>Click Here</a> 
 
 ![pytest](../_media/resource/pytest.png)
 
