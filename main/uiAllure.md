@@ -96,6 +96,6 @@ test_login.py::TestLogin::test_login_suc
 源数据生成测试报告：allure generate ./allureData -o .\allureReport\ <br>
 运行测试报告：allure open .\allureReport\
 
-Allure 测试报告：<a href='../_media/allureReport/index.html' target='blank'>Click Here</a>
+Allure 测试报告：<a href='./_media/allureReport/index.html' target='blank'>Click Here</a>
 
 ![allure](../_media/resource/allure.png)
