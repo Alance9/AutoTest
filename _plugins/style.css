@@ -1,0 +1,111 @@
+:root {
+    /* Reduce the font size */
+    --base-font-size: 16px;
+    --sidebar-width: 20rem;
+
+    /* Change the theme color hue */
+    /* --theme-hue: 800; */
+
+    /* Change the sidebar bullets */
+    --sidebar-nav-link-before-content: '';
+}
+
+.markdown-section {
+    margin: 0 auto;
+    max-width: 80%;
+    padding: 30px 15px 40px;
+    position: relative;
+}
+
+.sidebar-toggle {
+    /* transform: translate(var(--sidebar-width), 45%);
+    height: 100%; */
+}
+
+.sidebar-toggle .sidebar-toggle-button {
+    background: #f1f8ff;
+    height: 3.5rem;
+    color: #92c8fd;
+    border-radius: 5px;
+    /* top: -1em; */
+}
+
+body:not([data-platform^=Mac]) * {
+    /* scrollbar-width: none; */
+}
+
+.app-nav>ul>li>a.active {
+    color: #34495e;
+}
+
+.markdown-section blockquote {
+    border-color: #92c8fd;
+}
+
+section.cover.has-mask .mask {
+    opacity: 0;
+}
+
+.cover .cover-main>p:last-child a:first-child {
+    border: #92c8fd;
+    background: #92c8fd;
+}
+
+.cover h1 small {
+    color: #004d9a;
+}
+
+.sidebar {
+    background: none;
+}
+
+.markdown-section blockquote {
+    background: none;
+    padding: 0 var(--blockquote-padding) 0 var(--blockquote-padding);
+}
+
+.markdown-section a:hover {
+    /* color: #858585; */
+}
+
+.markdown-section a.anchor {
+    color: #5d5d5d;
+}
+
+.markdown-section .warn {
+    border: none;
+}
+
+.markdown-section .warn:before {
+    content: none;
+}
+
+.markdown-section p.warn {
+    border-radius: 2px;
+    padding: 1rem;
+}
+
+.markdown-section .tip {
+    border: none;
+}
+
+.markdown-section .tip:before {
+    content: none;
+}
+
+.markdown-section p.tip {
+    border-radius: 2px;
+    padding: 1rem;
+}
+
+body .docsify-pagination-container {
+    border-top: none;
+    color: #92c8fd;
+}
+
+hr {
+    height: 0;
+    margin: 1.5em 0;
+    border: none;
+    border-bottom: var(--hr-border, 0);
+}
