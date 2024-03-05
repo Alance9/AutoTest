@@ -60,7 +60,7 @@
 
 > ### 6. 数据库转型
 
-具体参考：[Oracle 转型 GuassDB](../main/exGauss.md)
+具体参考：[Oracle 转型 GuassDB](main/exGauss.md)
 
 ```
 国产的规范化，由于种种原因，而不得不

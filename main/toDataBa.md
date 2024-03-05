@@ -2,7 +2,7 @@
 
 > ### 1. 代码批量生成
 
-具体参考：[数据处理](http://localhost:3000/#/main/pyData "title")
+具体参考：[数据处理](main/pyData "title")
 
 > ### 2. SQL 批量生成
 
