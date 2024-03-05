@@ -6,7 +6,7 @@
 缺点是，图片匹配作为断言，耗时较久，主要写基本功能的冒烟案例，减少案例数，通过性验证。 <br>
 <br>
 断言方法：<br>
-1、 识别图片文字，参考：[图片处理](../main/pyPic.md) <br>
+1、 识别图片文字，参考：[图片处理](main/pyPic.md) <br>
 2、 对比截图相似度 <br>
 需要先保存预期图片，根据坐标定位模糊匹配，在精度阈值内认为是成功的 <br>
 3、 通过鼠标操作，在固定位置复制文本断言
@@ -214,7 +214,7 @@ pyautogui.moveTo(*position, duration=0.5)
 pyautogui.click()
 
 
-""" 检测图片 """
+""" GUI 自动化，检测图片 """
 
 
 def 识别图片(path, times=3):
@@ -224,17 +224,22 @@ def 识别图片(path, times=3):
         x, y = pyautogui.size()
         # grayscale 灰度化
         # 设置精度阈值(0-1)，精度越高，匹配度越高
-        while not pyautogui.locateCenterOnScreen(path, region=(0, 0, int(x/2), int(y/2)), grayscale=True, confidence=0.9):
+        flag = 0 
+        while not flag:
+            try:
+                pyautogui.locateCenterOnScreen(path, region=(
+                    0, 0, int(x/2), int(y/2)), grayscale=True, confidence=0.9)
+                logger.info('检测到图片，进入下一步')
+                return True
+            except:
+                pass
             # 检测 times 次，匹配不到返回 false
             if not times:
-                logger.info(f'图片不存在：{path}')
+                logger.info(f'图片识别失败：{path}')
                 return False
             times -= 1
-        else:
-            logger.info('检测到图片，进入下一步')
-            return True
     else:
-        logger.info('找不到对比图片')
+        logger.info('找不到预期图片')
         return False
 
 
@@ -251,11 +256,21 @@ def test_pic_fail():
     assert result
 ```
 ```
-test_pygui.py::test_pic_suc 2024-03-04 05:29:33,253 test_pygui.py 识别图片 [line- 131] INFO 检测图片中...
-
-2024-03-04 05:29:33,434 test_pygui.py 识别图片 [line- 141] INFO 检测到图片，进入下一步
+test_pygui.py::test_pic_suc 2024-03-05 22:09:43,492 test_pygui.py 识别图片 [line- 131] INFO 检测图片中...
+2024-03-05 22:09:43,653 test_pygui.py 识别图片 [line- 140] INFO 检测到图片，进入下一步
 PASSED
 
-test_pygui.py::test_pic_fail 2024-03-04 05:29:33,436 test_pygui.py 识别图片 [line- 131] INFO 检测图片中...
+test_pygui.py::test_pic_fail 2024-03-05 22:09:43,655 test_pygui.py 识别图片 [line- 131] INFO 检测图片中...
+2024-03-05 22:09:44,330 test_pygui.py 识别图片 [line- 146] INFO 图片识别失败：./pygui/fileClickAgain.png
 FAILED
+
+====================================================================================== FAILURES ======================================================================================= 
+____________________________________________________________________________________ test_pic_fail ____________________________________________________________________________________ 
+
+    def test_pic_fail():
+        result = 识别图片('./pygui/fileClickAgain.png')
+>       assert result
+E       assert False
+
+test_pygui.py:161: AssertionError
 ```
