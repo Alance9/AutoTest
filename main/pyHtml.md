@@ -242,7 +242,7 @@ if __name__ == '__main__':
 ?> 示例：[图像处理](https://alance9.gitee.io/auto-test/#/main/pyPic) 抓取内容，生成 MD 文档 <br>
 示例：[图像处理](https://alance9.gitee.io/auto-test/#/main/pyPic) 抓取链接，生成 TXT 文档
 
-MD 文档：<a href='./_media/resource/getMd.md' target='blank'>Click Here</a> 
+<!-- MD 文档：<a href='./_media/resource/getMd.md' target='blank'>Click Here</a>  -->
 
 ``` python
 import asyncio
