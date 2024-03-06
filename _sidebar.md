@@ -8,6 +8,8 @@
     * [请求处理](main/pyRes)
     * [日志处理](main/pyLog)
     * [图像处理](main/pyPic)
+    * [网页处理](main/pyHtml)
+    * [打包处理](main/pyPack)
 
 *  接口自动化
 

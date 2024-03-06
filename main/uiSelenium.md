@@ -340,8 +340,12 @@ def classIsExists(driver, name, timeout=ts):
 二次封装功能模块，便于组装场景，使测试代码更干净利落。 <br>
 <br>
 Message: invalid selector: An invalid or illegal selector was specified <br>
-非唯一元素，换成其他类型匹配
+非唯一元素，换成其他类型匹配 <br>
+<br>
+示例：正确账户密码，登录成功 <br>
+https://d2-admin.netlify.app/#/login
 
+![logsuc](../_media/resource/logsuc.png ':size=40%')
 
 ``` python
 # 源代码

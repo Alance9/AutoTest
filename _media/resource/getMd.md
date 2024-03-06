@@ -1,13 +1,8 @@
-<!-- pyzar -->
 
-> ### 1. 识别二维码
 
-?> 应用场景：UI 自动化，识别二维码、验证码 <br>
 
-![qrcode](../_media/resource/qrcode.png)
-
-``` python
-# pip install pyzbar
+1. 识别二维码
+应用场景：UI 自动化，识别二维码、验证码 # pip install pyzbar
 # pip install pillow
 # pip install qrcode
 
@@ -35,28 +30,17 @@ img = Image.open("./resource/qrcode.png").convert('L')
 
 # 读取二维码
 data = decode(img, symbols=[ZBarSymbol.QRCODE])[0].data.decode("utf-8")
-print(data)  # Alance9
-```
+print(data)  # Alance9Copy to clipboardErrorCopied
+2. 识别图片文字
+Tesseract 是一款支持图片转文字的工具，需要下载安装，并配置环境变量。 
 
-
-> ### 2. 识别图片文字
-
-?> Tesseract 是一款支持图片转文字的工具，需要下载安装，并配置环境变量。 <br>
-<br>
-在安装路径下 Tesseract-OCR\\tessdata ，放置中文包 chi_sim.traineddata  <br>
-下载 tesseract ：[Click Here](https://digi.bib.uni-mannheim.de/tesseract/) <br>
-下载 chi_sim.traineddata ：[Click Here](https://gitcode.com/tesseract-ocr/tessdata/tree/main?utm_source=csdn_github_accelerator&isLogin=1)
-
-!> 关注以下事项，保证 tesseract 运行正常 <br>
-1、 安装 tesseract，必须与程序在同一个盘下，否则检索不到：Failed loading language 'eng' <br>
-2、 安装路径，务必要配置环境变量，cmd 检测是否正常：tesseract -v <br>
-3、 路径 Tesseract-OCR\\tessdata ，需放置中文包 chi_sim.traineddata ，才能识别中文<br>
-4、 运行正常不报错，识别信息返回为空，代表图片需要做更深入处理，来提高 tesseract 识别率
-
-![qrcode](../_media/resource/image.png ':size=20%')
-
-``` python
-# pip install pytesseract
+在安装路径下 Tesseract-OCR\tessdata ，放置中文包 chi_sim.traineddata  
+下载 tesseract ：Click Here 
+下载 chi_sim.traineddata ：Click Here关注以下事项，保证 tesseract 运行正常 
+1、 安装 tesseract，必须与程序在同一个盘下，否则检索不到：Failed loading language 'eng' 
+2、 安装路径，务必要配置环境变量，cmd 检测是否正常：tesseract -v 
+3、 路径 Tesseract-OCR\tessdata ，需放置中文包 chi_sim.traineddata ，才能识别中文
+4、 运行正常不报错，识别信息返回为空，代表图片需要做更深入处理，来提高 tesseract 识别率# pip install pytesseract
 # pip install pillow
 
 import pytesseract
@@ -79,28 +63,14 @@ result = pytesseract.image_to_string(img, lang='chi_sim')
 # 过滤字符
 result = re.sub(
     '[〈’!"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s" "]+', ' ', result)
-print(result)
-``` 
-``` 
-语言包: ['chi_sim', 'eng', 'osd']
- PREVIOUS 日 志 处 理
-``` 
+print(result)Copy to clipboardErrorCopied语言包: ['chi_sim', 'eng', 'osd']
+ PREVIOUS 日 志 处 理Copy to clipboardErrorCopied
+3. 识别验证码
+清晰的图片不需要处理，能被 tesseract 精准识别，但存在大量噪点和线条的情况下，会降低识别率 
+Opencv 支持复杂图片的处理，如：放大、二值化、模糊去噪 
+处理前
 
-
-> ### 3. 识别验证码
-
-?> 清晰的图片不需要处理，能被 tesseract 精准识别，但存在大量噪点和线条的情况下，会降低识别率 <br>
-Opencv 支持复杂图片的处理，如：放大、二值化、模糊去噪 <br>
-
-> #### 处理前
-
-![a](../_media/resource/a.png ':size=30%')
-
-> #### 处理后
-
-![pypic](../_media/resource/pypic.png ':size=30%')
-
-``` python
+处理后
 # pip install opencv-python
 # pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opencv-python
 
@@ -156,31 +126,16 @@ result = re.sub('[^A-Za-z0-9]+', ' ', text)
 print(result)
 
 cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-```
-VYe4
-```
-
-> #### 二值化 + 腐蚀膨胀
-
-![picer](../_media/resource/picer1.png ':size=30%')
-
-![picer](../_media/resource/picer.png ':size=30%')
-
-``` python
-# 二值化
-img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-ret, binary = cv2.threshold(img, 190, 255, cv2.THRESH_BINARY_INV)
-
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-img = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
-
-# 设置卷积核
-kernel = numpy.ones((5, 5), numpy.uint8)
-# 图像腐蚀处理
-img = cv2.erode(img, kernel)
-# 图像膨胀处理
-img = cv2.dilate(img, kernel)
-```
-
+cv2.destroyAllWindows()Copy to clipboardErrorCopiedVYe4Copy to clipboardErrorCopied
+        
+          
+            
+              
+                
+              
+              PREVIOUS
+            
+            日志处理
+      
+        
+       © Created  2024.  By Alance.
