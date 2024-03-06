@@ -81,6 +81,8 @@ pyinstaller -i .\favlove.ico -F .\batchData.py -n easyData
 
 ?> 传入命令行参数，生成 CSV 文件 <br>
 
+CSV 文件：<a href='./_media/resource/batchImport.csv' target='blank'>Click Here</a> 
+
 ```
 .\easyData.exe 100
 
@@ -91,7 +93,7 @@ Start.
 End.
 
 .\easyData.exe   
- 
+
 Start.
 请输入参数--文件生成的数据量
 End.
