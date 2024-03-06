@@ -244,7 +244,7 @@ if __name__ == '__main__':
 
 MD 文档：<a href='./_media/resource/getMd.md' target='blank'>Click Here</a> 
 
-TXT 文档：<a href='./_media/resource/link.txt' target='blank'>Click Here</a> 
+TXT 文档：<a href='../_media/resource/link.txt' target='blank'>Click Here</a> 
 
 ``` python
 import asyncio
