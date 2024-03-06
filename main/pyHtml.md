@@ -244,8 +244,6 @@ if __name__ == '__main__':
 
 MD 文档：<a href='./_media/resource/getMd.md' target='blank'>Click Here</a> 
 
-TXT 文档：<a href='../_media/resource/link.txt' target='blank'>Click Here</a> 
-
 ``` python
 import asyncio
 import os
@@ -281,7 +279,7 @@ async def main(url=base_url):
     content = await page.evaluate('(element) => element.textContent', element)
 
     with open('./media/link.txt', 'w', encoding='utf-8') as f:
-        f.writelines(content)
+        f.writelines(content)   # 首页
 
     await driver.close()
 
