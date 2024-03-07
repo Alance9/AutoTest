@@ -752,6 +752,8 @@ from common.selumHelp import classPic, openChrome, sleep, xpathClick, xpathInput
 
 
 base_url = "https://d2-admin.netlify.app/#/login"
+user = 'admin'
+pwd = 'admin'
 
 def open(url=base_url, max=True, ignore_pic=False):
     # 启动浏览器，访问网址
@@ -764,16 +766,16 @@ def close(driver):
     driver.quit()
 
 
-def login(driver, expect=True):
+def login(driver, user=user, pwd=pwd, expect=True):
     
     """ 登录 """
 
     # 输入账号
     xpathInput(
-        driver, '//*[@id="app"]/div/div[3]/div/div[2]/div/div/div/form/div[1]/div/div/input', 'admin')
+        driver, '//*[@id="app"]/div/div[3]/div/div[2]/div/div/div/form/div[1]/div/div/input', user)
     # 输入密码
     xpathInput(
-        driver, '//*[@id="app"]/div/div[3]/div/div[2]/div/div/div/form/div[2]/div/div/input', 'admin')
+        driver, '//*[@id="app"]/div/div[3]/div/div[2]/div/div/div/form/div[2]/div/div/input', pwd)
     # 保存验证码
     classPic(driver, 'login-code')
     # 识别验证码
